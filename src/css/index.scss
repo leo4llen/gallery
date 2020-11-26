@@ -23,14 +23,11 @@ header {
 
 main {
     section {
-        padding: 2em;
+        padding: 4em;
         column-gap: 8px;
         -webkit-column-gap: 8px;
         -moz-column-gap: 8px;
         column-fill: balance;
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
         margin: 0 auto;
         max-width: 1500px;
         img {
@@ -58,7 +55,21 @@ main {
     }
 }
 
+@media only screen and (max-width: 991px) {
+    section {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
 
+@media only screen and (min-width: 992px) {
+    section {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
 
 #preview-modal {
     position: fixed;
