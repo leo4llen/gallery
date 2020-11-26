@@ -1,8 +1,7 @@
 @import 'normalize';
 
 html {
-    font-size: 16px;
-    font-family: 'Crimson Text', serif;
+     font-family: 'Crimson Text', serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -12,7 +11,7 @@ html {
 header {
     font-size: 1.2em;
     text-align: center;
- 
+    padding: 1em;
     h2 {
         letter-spacing: 2px;
     }
@@ -24,9 +23,16 @@ header {
 
 main {
     section {
-        padding: 0 5vw;
+        padding: 2em;
         column-gap: 8px;
+        -webkit-column-gap: 8px;
+        -moz-column-gap: 8px;
         column-fill: balance;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        margin: 0 auto;
+        max-width: 1500px;
         img {
             display: block;
             width: 100%;
@@ -40,28 +46,25 @@ main {
     }
 }
 
-@media only screen and (max-width: 1899px) {
-    section {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
+@media only screen and (max-width: 767px) {
+    html {
+        font-size: 12px;
     }
 }
 
-@media only screen and (min-width: 1900px) {
-    section {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 16px;
     }
 }
+
 
 
 #preview-modal {
     position: fixed;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-evenly;
     top: 0;
     right: 0;
@@ -72,11 +75,55 @@ main {
     width: 100%;
     height: 100%;
     background-color: white;
-    &.open {
-        opacity: 1;
-        z-index: 9;
+    transition: opacity 50ms linear;
+    -webkit-transition: opacity 50ms linear;
+    -moz-transition: opacity 50ms linear;
+    -ms-transition: opacity 50ms linear;
+    .preview-image-container {
+        
+        #preview-image {
+            display: block;
+            max-height:90vh;
+            max-width: 100%;
+        }
+        #camera-settings {
+            text-align: center;
+        }
+    }
+    
+
+    .image-scroll {
+        display: block;
+        cursor: pointer;
+        margin: 0 1em;
+        width: 2em;
+        
+        &[data-direction="prev"] {
+            transform: rotate(180deg);
+        }
+    }
+
+    #modal-close {
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        width: 1.5em;
+        right: 15px;
+        top: 15px; 
     }
 }
+
+body {
+    &.modal-open {
+        overflow: hidden;
+        #preview-modal {
+            opacity: 1;
+            z-index: 9;
+        }
+    }
+}
+
+
 .github-icon {
     position: absolute;
     width: 3em;

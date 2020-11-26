@@ -6,28 +6,38 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="stylesheet" href="css/index.scss" />
     <link
       href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap"
       rel="stylesheet"
     />
-    <title>📷</title>
+    <title>Leo's gallery</title>
   </head>
   <body>
-    <a href="https://github.com/lech4rm/gallery" target="_blank"
+    <a
+      href="https://github.com/lech4rm/gallery"
+      target="_blank"
+      title="View this in github"
       ><img src="images/github-icon.png" alt="Github repo" class="github-icon"
     /></a>
     <header>
-      <h2>Leo Allen's gallery</h2>
-      <p>Add some description text here. lmao</p>
+      <h2>Leo's gallery</h2>
+      <p>A randomized collection of photos taken by me</p>
     </header>
     <main>
       <section id="image-container"></section>
     </main>
-    <div id="preview-modal" class="ope">
-      <span><</span>
-      <img id="preview-image" \>
-      <span>><span>
+    <div id="preview-modal">
+      <img id="modal-close" src="images/close.svg" alt="Close modal" \ />
+
+      <img src="images/skip.png" class="image-scroll" data-direction="prev" />
+      <div class="preview-image-container">
+        <img id="preview-image" \ />
+        <p id="camera-settings"></p>
+      </div>
+
+      <img src="images/skip.png" class="image-scroll" data-direction="next" />
     </div>
     <script src="js/index.js"></script>
   </body>

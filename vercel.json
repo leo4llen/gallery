@@ -1,4 +1,11 @@
 {
   "version": 2,
-  "alias": ["gallery.leoallen.me"]
+  "alias": ["gallery.leoallen.me"],
+  "routes": [
+    {
+      "src": "/get-images",
+      "methods": ["GET"],
+      "dest": "/api/getImages.js"
+    }
+  ]
 }
