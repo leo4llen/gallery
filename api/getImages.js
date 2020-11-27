@@ -12,7 +12,8 @@ module.exports = async (req, res) => {
       const { height, width } = image.fields.file.details.image
       fields.imageUrl =
         image.fields.file.url +
-        (height > width ? `?h=${MAX_SIZE}` : `?w=${MAX_SIZE}`) // set either width or height to max size based on aspect ratio
+        '?fm=jpg&fl=progressive' +
+        (height > width ? `&h=${MAX_SIZE}` : `&w=${MAX_SIZE}`) // set either width or height to max size based on aspect ratio
       fields.imageHeight = height
       fields.imageWidth = width
       fields.imageWidth = image.fields.file.details.image.width
