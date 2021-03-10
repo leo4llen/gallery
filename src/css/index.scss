@@ -11,19 +11,14 @@ html {
 header {
     font-size: 1.2em;
     text-align: center;
-    padding: 1em;
-    h2 {
+    h3 {
         letter-spacing: 2px;
-    }
-
-    p {
-        letter-spacing: 1.2px;
     }
 }
 
 main {
     section {
-        padding: 4em;
+        padding: 0 4em;
         column-gap: 8px;
         -webkit-column-gap: 8px;
         -moz-column-gap: 8px;
@@ -34,6 +29,12 @@ main {
             display: block;
             width: 100%;
             margin-bottom:8px;
+            background-color: #DDDDDD;
+            // filter: grayscale(100%);
+            // -webkit-filter: grayscale(100%); /* New WebKit */
+            // -moz-filter: grayscale(100%);
+            // -ms-filter: grayscale(100%); 
+            // -o-filter: grayscale(100%);
             &:hover {
                 -webkit-box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
                 -moz-box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);

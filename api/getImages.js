@@ -22,14 +22,11 @@ module.exports = async (req, res) => {
     })
   }
 
-  const _randomizeArray = arr => arr.sort(() => Math.random() - 0.5)
-
   const getImages = await client
     .getEntries({
       content_type: 'galleryImages'
     })
     .then(_parseData)
-    .then(_randomizeArray)
 
   res.setHeader(
     'Access-Control-Allow-Origin',

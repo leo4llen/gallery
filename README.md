@@ -1,4 +1,4 @@
-# Personal photography gallery
+# Personal photo gallery
 
 [https://gallery.leoallen.me](https://gallery.leoallen.me)
 

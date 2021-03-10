@@ -38,8 +38,28 @@ const _renderImages = ([images, container, lazyLoadObserver]) => {
     imageTag.classList.add('lazy')
     lazyLoadObserver.observe(imageTag)
     fragment.appendChild(imageTag)
+    image.imageTag = imageTag
   })
   container.appendChild(fragment)
+  return [images, container]
+}
+
+// This had to be a separate method as the width only gets computed
+// when the image tags are added to the DOM. Which happens in line 44
+
+const _setImagePlaceholders = images => {
+  images.forEach(image => {
+    const aspectRatio = image.imageWidth / image.imageHeight
+    image.imageTag.style.height = `${
+      image.imageTag.offsetWidth / aspectRatio
+    }px`
+  })
+}
+
+const _renderImagePlaceholders = ([images, container]) => {
+  // Do this on load and on window resize events
+  _setImagePlaceholders(images)
+  window.addEventListener('resize', () => _setImagePlaceholders(images))
   return [images, container]
 }
 
@@ -85,7 +105,10 @@ const _addPreviewEvents = ([images, imageContainer]) => {
   })
 }
 
+// Everything starts here
+
 Promise.all([_getImages(), _getContainer(), _addLazyLoadObserver()])
   .then(_renderImages)
+  .then(_renderImagePlaceholders)
   .then(_addPreviewEvents)
   .catch(console.error)
